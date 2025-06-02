@@ -102,7 +102,7 @@ class _MenuSupervisorWidgetState extends State<MenuSupervisorWidget>
               backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
               automaticallyImplyLeading: false,
               title: Text(
-                'My Profile',
+                'Mi Perfil',
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
                       font: GoogleFonts.interTight(
                         fontWeight: FlutterFlowTheme.of(context)
@@ -455,7 +455,7 @@ class _MenuSupervisorWidgetState extends State<MenuSupervisorWidget>
                                           ),
                                     ),
                                     Text(
-                                      'ggym@gmail.com',
+                                      'supervisor@gmail.com',
                                       style: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
@@ -595,7 +595,7 @@ class _MenuSupervisorWidgetState extends State<MenuSupervisorWidget>
                                                                 .start,
                                                         children: [
                                                           Text(
-                                                            '[Nombre Supervisor]',
+                                                            'Supervisor',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .headlineSmall
@@ -632,7 +632,7 @@ class _MenuSupervisorWidgetState extends State<MenuSupervisorWidget>
                                                                         0.0,
                                                                         0.0),
                                                             child: Text(
-                                                              'casper@ghustbusters.com',
+                                                              'supervisor@gmail.com',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .labelMedium

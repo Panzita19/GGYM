@@ -86,7 +86,7 @@ class _PerfilClienteWidgetState extends State<PerfilClienteWidget> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            '[Nombre]',
+                            'Carlos Gonzalez',
                             style: FlutterFlowTheme.of(context)
                                 .headlineSmall
                                 .override(
@@ -113,7 +113,7 @@ class _PerfilClienteWidgetState extends State<PerfilClienteWidget> {
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 4.0, 0.0, 0.0),
                             child: Text(
-                              '[Fecha de Nacimiento]',
+                              'Odraude.993@gmail.com',
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -138,32 +138,7 @@ class _PerfilClienteWidgetState extends State<PerfilClienteWidget> {
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 4.0, 0.0, 0.0),
                             child: Text(
-                              '[Email]',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    font: GoogleFonts.plusJakartaSans(
-                                      fontWeight: FontWeight.w600,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
-                                    ),
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    fontSize: 14.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w600,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontStyle,
-                                  ),
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 4.0, 0.0, 0.0),
-                            child: Text(
-                              '[Telefono]',
+                              '0412-3921346',
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -252,6 +227,72 @@ class _PerfilClienteWidgetState extends State<PerfilClienteWidget> {
                                   .bodyLarge
                                   .fontStyle,
                             ),
+                      ),
+                    ].divide(SizedBox(width: 12.0)),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+            child: Material(
+              color: Colors.transparent,
+              elevation: 0.0,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+              child: Container(
+                width: double.infinity,
+                height: 100.0,
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).secondaryBackground,
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 3.0,
+                      color: Color(0x33000000),
+                      offset: Offset(
+                        0.0,
+                        1.0,
+                      ),
+                    )
+                  ],
+                  borderRadius: BorderRadius.circular(8.0),
+                  border: Border.all(
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                    width: 0.0,
+                  ),
+                ),
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 4.0, 0.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Icon(
+                        Icons.remove_red_eye_rounded,
+                        color: FlutterFlowTheme.of(context).primaryText,
+                        size: 24.0,
+                      ),
+                      Text(
+                        'Ver Rutinas Disponibles',
+                        style: FlutterFlowTheme.of(context).bodyLarge.override(
+                          font: GoogleFonts.inter(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyLarge
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyLarge
+                                .fontStyle,
+                          ),
+                          letterSpacing: 0.0,
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .bodyLarge
+                              .fontWeight,
+                          fontStyle: FlutterFlowTheme.of(context)
+                              .bodyLarge
+                              .fontStyle,
+                        ),
                       ),
                     ].divide(SizedBox(width: 12.0)),
                   ),

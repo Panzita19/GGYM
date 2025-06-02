@@ -87,7 +87,7 @@ class _MenuEntrenadorWidgetState extends State<MenuEntrenadorWidget> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            '[Nombre Entrenador]',
+                            'Panza Trainer',
                             style: FlutterFlowTheme.of(context)
                                 .headlineSmall
                                 .override(

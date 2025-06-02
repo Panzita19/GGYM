@@ -20,19 +20,55 @@ class InicioSesionRegistroWidget extends StatefulWidget {
   static String routePath = '/inicioSesionRegistro';
 
   @override
-  State<InicioSesionRegistroWidget> createState() =>
-      _InicioSesionRegistroWidgetState();
+  State<InicioSesionRegistroWidget> createState() => _InicioSesionRegistroWidgetState();
+
 }
 
 class _InicioSesionRegistroWidgetState extends State<InicioSesionRegistroWidget>
     with TickerProviderStateMixin {
   late InicioSesionRegistroModel _model;
 
+  final TextEditingController correoController = TextEditingController();
+  final TextEditingController contrasenaController = TextEditingController();
+
   //aqui se declaran las variables
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   final animationsMap = <String, AnimationInfo>{};
+
+  final List<Map<String, String>> usuariosSimulados = [
+    {
+      'correo': 'juanpanza@gmail.com',
+      'contrasena': '12345',
+      'rol': 'Entrenador',
+    },
+    {
+      'correo': 'odraude.993@gmail.com',
+      'contrasena': '12345',
+      'rol': 'Usuario',
+    },
+    {
+      'correo': 'javiaddezio@gmail.com',
+      'contrasena': '12345',
+      'rol': 'Usuario',
+    },
+    {
+      'correo': 'supervisor@gmail.com',
+      'contrasena': '12345',
+      'rol': 'Supervisor',
+    },
+    {
+      'correo': 'entrenador@gmail.com',
+      'contrasena': '12345',
+      'rol': 'Entrenador',
+    },
+    {
+      'correo': 'cliente@gmail.com',
+      'contrasena': '12345',
+      'rol': 'Usuario',
+    },
+  ];
 
   @override
   void initState() {
@@ -86,7 +122,8 @@ class _InicioSesionRegistroWidgetState extends State<InicioSesionRegistroWidget>
   @override
   void dispose() {
     _model.dispose();
-
+    correoController.dispose();
+    contrasenaController.dispose();
     super.dispose();
   }
 
@@ -631,22 +668,32 @@ class _InicioSesionRegistroWidgetState extends State<InicioSesionRegistroWidget>
                                                           0.0, 0.0, 0.0, 16.0),
                                                   child: FFButtonWidget(
                                                     onPressed: () {
-                                                      print('Button pressed ...');
+                                                      final correo = _model.emailAddressTextController.text.trim();
+                                                      final contrasena = _model.passwordTextController.text.trim();
 
-                                                      // Simula el rol del usuario
+                                                      final usuario = usuariosSimulados.firstWhere(
+                                                            (user) => user['correo'] == correo && user['contrasena'] == contrasena,
+                                                        orElse: () => {},
+                                                      );
 
-                                                      //final String rol = 'Entrenador';
-                                                      final String rol = 'Supervisor';
-                                                      //final String rol = 'Cliente';
+                                                      if (usuario.isNotEmpty) {
+                                                        final rol = usuario['rol'];
 
-                                                      if (rol == 'Entrenador') {
-                                                        context.goNamed('menuEntrenador'); // o pushNamed si deseas agregarlo al stack
-                                                      } else if (rol == 'Supervisor') {
-                                                        context.goNamed('menuSupervisor');
-                                                      } else if (rol == 'Cliente') {
-                                                        context.goNamed('perfilCliente');
+                                                        // Puedes navegar según el rol o almacenar el rol en una variable global
+                                                        if (rol == 'Supervisor') {
+                                                          context.pushNamed('menuSupervisor');
+                                                        } else if (rol == 'Entrenador') {
+                                                          context.pushNamed('menuEntrenador');
+                                                        } else {
+                                                          context.pushNamed('perfilCliente');
+                                                        }
                                                       } else {
-                                                        print('Rol no reconocido: $rol');
+                                                        ScaffoldMessenger.of(context).showSnackBar(
+                                                          SnackBar(
+                                                            content: Text('Credenciales incorrectas'),
+                                                            backgroundColor: Colors.red,
+                                                          ),
+                                                        );
                                                       }
                                                     },
                                                     text: 'Iniciar Sesión',

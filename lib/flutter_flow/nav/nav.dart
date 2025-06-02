@@ -94,8 +94,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: PerfilClienteSupWidget.routeName,
           path: PerfilClienteSupWidget.routePath,
-          builder: (context, params) => PerfilClienteSupWidget(),
+          builder: (context, params) {
+            return PerfilClienteSupWidget(
+              nombre: params.getParam('nombre', ParamType.String) ?? '',
+              cedula: params.getParam('cedula', ParamType.String) ?? '',
+              rol: params.getParam('rol', ParamType.String) ?? '',
+              correo: params.getParam('correo', ParamType.String) ?? '',
+              telefono: params.getParam('telefono', ParamType.String) ?? '',
+              fechaNacimiento: params.getParam('fechaNacimiento', ParamType.String) ?? '',
+              direccion: params.getParam('direccion', ParamType.String) ?? '',
+              fechaRegistro: params.getParam('fechaRegistro', ParamType.String) ?? '',
+            );
+          },
         ),
+
         FFRoute(
           name: MenuEntrenadorWidget.routeName,
           path: MenuEntrenadorWidget.routePath,

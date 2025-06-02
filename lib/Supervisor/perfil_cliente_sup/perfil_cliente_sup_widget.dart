@@ -9,17 +9,38 @@ import 'perfil_cliente_sup_model.dart';
 export 'perfil_cliente_sup_model.dart';
 
 class PerfilClienteSupWidget extends StatefulWidget {
-  const PerfilClienteSupWidget({super.key});
+  const PerfilClienteSupWidget({
+    Key? key,
+    required this.nombre,
+    required this.cedula,
+    required this.rol,
+    required this.correo,
+    required this.telefono,
+    required this.fechaNacimiento,
+    required this.direccion,
+    required this.fechaRegistro,
+  }) : super(key: key);
 
-  static String routeName = 'perfilClienteSup';
-  static String routePath = '/perfilClienteSup';
+  final String nombre;
+  final String cedula;
+  final String rol;
+  final String correo;
+  final String telefono;
+  final String fechaNacimiento;
+  final String direccion;
+  final String fechaRegistro;
+
+  static const String routeName = 'perfilClienteSup';
+  static const String routePath = '/perfilClienteSup';
 
   @override
-  State<PerfilClienteSupWidget> createState() => _PerfilClienteSupWidgetState();
+  _PerfilClienteSupWidgetState createState() => _PerfilClienteSupWidgetState();
 }
 
 class _PerfilClienteSupWidgetState extends State<PerfilClienteSupWidget> {
   late PerfilClienteSupModel _model;
+
+
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -85,7 +106,7 @@ class _PerfilClienteSupWidgetState extends State<PerfilClienteSupWidget> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            '[Nombre]',
+                            widget.nombre,
                             style: FlutterFlowTheme.of(context)
                                 .headlineSmall
                                 .override(
@@ -112,7 +133,31 @@ class _PerfilClienteSupWidgetState extends State<PerfilClienteSupWidget> {
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 4.0, 0.0, 0.0),
                             child: Text(
-                              '[Fecha de Nacimiento]',
+                              widget.cedula,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    font: GoogleFonts.plusJakartaSans(
+                                      fontWeight: FontWeight.w600,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    fontSize: 14.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w600,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 4.0, 0.0, 0.0),
+                            child: Text(widget.correo,
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -137,32 +182,7 @@ class _PerfilClienteSupWidgetState extends State<PerfilClienteSupWidget> {
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 4.0, 0.0, 0.0),
                             child: Text(
-                              '[Email]',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    font: GoogleFonts.plusJakartaSans(
-                                      fontWeight: FontWeight.w600,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
-                                    ),
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    fontSize: 14.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w600,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontStyle,
-                                  ),
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 4.0, 0.0, 0.0),
-                            child: Text(
-                              '[Telefono]',
+                              widget.telefono,
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -248,62 +268,54 @@ class _PerfilClienteSupWidgetState extends State<PerfilClienteSupWidget> {
               ),
             ),
           ),
-          Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
-            child: Material(
-              color: Colors.transparent,
-              elevation: 0.0,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8.0),
-              ),
-              child: Container(
-                width: double.infinity,
-                height: 80.0,
-                decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).secondaryBackground,
-                  boxShadow: [
-                    BoxShadow(
-                      blurRadius: 3.0,
-                      color: Color(0x33000000),
-                      offset: Offset(
-                        0.0,
-                        1.0,
-                      ),
-                    )
-                  ],
+          GestureDetector(
+            onTap: () {
+              Navigator.pop(context); // Acción de volver atrás
+            },
+            child: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+              child: Material(
+                color: Colors.transparent,
+                elevation: 0.0,
+                shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8.0),
-                  border: Border.all(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
-                    width: 0.0,
-                  ),
                 ),
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 4.0, 0.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 2.5, 0.0, 0.0),
-                        child: Icon(
-                          Icons.chevron_left_rounded,
-                          color: FlutterFlowTheme.of(context).primaryText,
-                          size: 24.0,
+                child: Container(
+                  width: double.infinity,
+                  height: 80.0,
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                    boxShadow: [
+                      BoxShadow(
+                        blurRadius: 3.0,
+                        color: Color(0x33000000),
+                        offset: Offset(0.0, 1.0),
+                      )
+                    ],
+                    borderRadius: BorderRadius.circular(8.0),
+                    border: Border.all(
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                      width: 0.0,
+                    ),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 4.0, 0.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 2.5, 0.0, 0.0),
+                          child: Icon(
+                            Icons.chevron_left_rounded,
+                            color: FlutterFlowTheme.of(context).primaryText,
+                            size: 24.0,
+                          ),
                         ),
-                      ),
-                      Text(
-                        'Volver al menu',
-                        style: FlutterFlowTheme.of(context).bodyLarge.override(
-                              font: GoogleFonts.inter(
-                                fontWeight: FlutterFlowTheme.of(context)
-                                    .bodyLarge
-                                    .fontWeight,
-                                fontStyle: FlutterFlowTheme.of(context)
-                                    .bodyLarge
-                                    .fontStyle,
-                              ),
-                              letterSpacing: 0.0,
+                        Text(
+                          'Volver al menu',
+                          style: FlutterFlowTheme.of(context).bodyLarge.override(
+                            font: GoogleFonts.inter(
                               fontWeight: FlutterFlowTheme.of(context)
                                   .bodyLarge
                                   .fontWeight,
@@ -311,8 +323,17 @@ class _PerfilClienteSupWidgetState extends State<PerfilClienteSupWidget> {
                                   .bodyLarge
                                   .fontStyle,
                             ),
-                      ),
-                    ].divide(SizedBox(width: 12.0)),
+                            letterSpacing: 0.0,
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyLarge
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyLarge
+                                .fontStyle,
+                          ),
+                        ),
+                      ].divide(SizedBox(width: 12.0)),
+                    ),
                   ),
                 ),
               ),
